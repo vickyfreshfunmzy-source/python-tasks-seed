@@ -23,12 +23,7 @@ def builtin_sort(data):
             data[i] = v
         
 def bubble_sort(data):
-    """
-    Bubble sort algorithm (O(N^2))
 
-    :param data: data to sort inplace
-    :type data: list or CountingList
-    """
     n = len(data)
 
     for i in range(n):
@@ -39,12 +34,7 @@ def bubble_sort(data):
                 data[j + 1] = tmp
                 
 def merge_sort(data):
-    """
-    Merge sort algorithm (O(N log N))
 
-    :param data: data to sort inplace
-    :type data: list or CountingList
-    """
 
     def _merge_sort(left, right):
         if right - left <= 1:
@@ -78,7 +68,7 @@ def merge_sort(data):
             temp.append(data[j])
             j += 1
 
-        # réécriture via data[i] → compte les assignations
+
         for k, v in enumerate(temp):
             data[left + k] = v
 
