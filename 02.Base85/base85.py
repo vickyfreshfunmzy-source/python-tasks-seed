@@ -1,5 +1,6 @@
 #!/usr/bin/env -S python3
 
+
 import sys
 from typing import Callable, Optional
 
