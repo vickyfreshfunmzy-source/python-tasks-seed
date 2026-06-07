@@ -7,8 +7,8 @@ python -c 'import sys; import base64; sys.stdout.buffer.write(base64.b85encode(s
 
 # ---------------------------------------------------
 
-./base85 -e <random.bin >random.b85.test
-./base85 -d <random.b85 >random.bin.test
+python3 base85.py -e <random.bin >random.b85.test
+python3 base85.py -d <random.b85 >random.bin.test
 
 if cmp -s random.b85 random.b85.test; then
   echo Encoder ok!
