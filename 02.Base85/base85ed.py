@@ -18,13 +18,13 @@ def encode(b: bytes) -> bytes:
     result: list[int] = []
     # Process input 4 bytes at a time
     for i in range(0, len(b), 4):
-        chunk = b[i:i + 4]
+        chunk = b[i : i + 4]
 
         # Pad the chunk with null bytes to make it exactly 4 bytes long
-        padded_chunk = chunk.ljust(4, b'\x00')
+        padded_chunk = chunk.ljust(4, b"\x00")
 
         # Convert the 4 bytes into a single 32-bit unsigned integer
-        num = int.from_bytes(padded_chunk, byteorder='big')
+        num = int.from_bytes(padded_chunk, byteorder="big")
 
         # Extract 5 Base85 characters by repeatedly dividing by 85
         encoded_chunk = []
@@ -49,7 +49,7 @@ def decode(b: bytes) -> bytes:
     """
     result: list[int] = []
     for i in range(0, len(b), 5):
-        chunk = b[i:i + 5]
+        chunk = b[i : i + 5]
 
         padded_chunk = chunk.ljust(5, ALPHABET[-1:])
 
@@ -62,7 +62,7 @@ def decode(b: bytes) -> bytes:
             raise ValueError(f"Invalid Base85 character in chunk starting at byte {i}")
 
         try:
-            decoded_bytes = num.to_bytes(4, byteorder='big')
+            decoded_bytes = num.to_bytes(4, byteorder="big")
         except OverflowError:
             raise ValueError(f"Base85 overflow in chunk starting at byte {i}")
 
