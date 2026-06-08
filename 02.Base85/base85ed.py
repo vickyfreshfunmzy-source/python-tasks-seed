@@ -15,7 +15,7 @@ def encode(b: bytes) -> bytes:
     """
     Base85 encoder implemented from scratch
     """
-    result = []
+    result: list[int] = []
     # Process input 4 bytes at a time
     for i in range(0, len(b), 4):
         chunk = b[i:i + 4]
@@ -47,7 +47,7 @@ def decode(b: bytes) -> bytes:
     """
     Base85 decoder implemented from scratch
     """
-    result = []
+    result: list[int] = []
     for i in range(0, len(b), 5):
         chunk = b[i:i + 5]
 
